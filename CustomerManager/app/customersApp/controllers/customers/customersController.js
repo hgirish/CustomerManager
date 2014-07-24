@@ -13,8 +13,10 @@
         $scope.totalRecords = 0;
         $scope.pageSize = 10;
         $scope.currentPage = 1;
-       
 
+        $scope.searchTextChanged = function() {
+            filterCustomers($scope.searchText);
+        };
         function init() {
             getCustomersSummary();
         }

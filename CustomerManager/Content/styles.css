@@ -2,3 +2,75 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
+
+.white {
+    color: white;
+}
+
+.white:hover{
+    color: white;
+}
+
+.card {
+    background-color:#fff;
+    border: 1px solid #d4d4d4;
+    height:100px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cardHeader {
+    background-color:#027FF4;
+    font-size:14pt;
+    color:white;
+    padding:5px;
+    width:100%;
+}
+
+.cardClose {
+    color: white;
+    font-weight:bold;
+    margin-right:5px;
+}
+
+.cardContainer {
+    width:85%;
+}
+
+.cardBody {
+    padding-left: 5px;
+}
+
+.cardBodyLeft {
+    margin-top: -5px;
+}
+
+.cardBodyRight {
+    margin-left: 20px;
+    margin-top: 2px;
+}
+
+.cardBodyContent {
+    width: 100px;
+}
+
+.cardImage {
+    height:50px;width:50px;margin-top:10px;
+}
+.indent {
+    margin-left:5px;
+}
+
+.navbar .nav li.toolbaritem a:hover, .navbar .nav li a:hover {
+    color: #E03930;
+}
+
+ .navbar .nav > li.toolbaritem > a {
+        color: black;
+        font-weight:bold;
+        -webkit-text-shadow: none;
+        text-shadow: none;
+    }
+ .navbarText {
+    font-weight:bold;
+}

@@ -3,16 +3,51 @@
         <header>
             <h3><span class="glyphicon glyphicon-user"></span> Customers</h3>
         </header>
-        
+        <div class="row">
+            <div class="col-md-10">
+                <div class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li data-ng-class="{active: !listDisplayModeEnabled}" class="toolbaritem"><a data-ng-click="changeDisplayMode(DisplayModeEnum.Card)"><span class="glyphicon glyphicon-th-large"></span> Card View</a></li>
+                        <li data-ng-class="{active: listDisplayModeEnabled}" class="toolbaritem"><a data-ng-click="changeDisplayMode(DisplayModeEnum.List)"><span class="glyphicon glyphicon-align-justify"></span> List View</a></li>
+                        <li class="toolbaritem"><a data-ng-click="navigate('/customeredit/0')"><span class="glyphicon glyphicon-plus"></span> Add Customer</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <label class="navbarText col-sm-2">Filter:</label>
+                            <div class="col-sm-10">
+                                <input type="text" data-ng-model="searchText" data-ng-change="searchTextChanged();" class="novalidate form-control" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row cardContainer show-hide-animation" data-ng-hide="listDisplayModeEnabled">
                 <div class="col-sm-6 col-md-3" data-ng-class="cardAnimationClasss" data-ng-repeat="customer in filteredCustomers | orderBy: 'lastName'">
                     <div class="card">
                         <button class="btn close cardClose" title="Delete Customer" data-ng-click="deleteCustomer(customer.id)">&times;</button>
                         <div class="cardHeader">
-                            <a href="#customeredit/{{customer.id}}" class="white">{{customer.firstName + ' ' + customer.lastName}} <i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="#customeredit/{{customer.id}}" class="white">{{customer.firstName + ' ' + customer.lastName}} <i class="glyphicon glyphicon-edit white"></i></a>
                         </div>
+                        <div class="cardBody">
+                            <div class="clearfix">
+                                <div class="pull-left cardBodyLeft">
+                                    <a href="#/customeredit/{{customer.id}}" class="white"><img data-ng-src="/content/images/{{customer.gender | lowercase}}.png" class="cardImage" /></a>
+                                </div>
+                                <div class="pull-left cardBodyRight">
+                                    <div class="cardBodyContent">{{customer.city}}, {{customer.state.name}}</div>
+                                    <div>
+                                        <a href="#/customerorders/{{customer.id}}" class="btn-link">
+                                            {{customer.orderCount}}
+                                            <span data-ng-pluralize count="customer.orderCount"
+                                                  when="{'1': 'Order', 'other': 'Orders'}"></span>
+                                        </a>
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
