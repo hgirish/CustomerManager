@@ -103,6 +103,9 @@
     <Content Include="app\customersApp\controllers\AboutController.js" />
     <Content Include="app\customersApp\controllers\customers\customersController.js" />
     <Content Include="app\customersApp\controllers\navbarController.js" />
+    <Content Include="app\customersApp\filters\nameCityStateFilter.js" />
+    <Content Include="app\customersApp\services\customersService.js" />
+    <Content Include="app\customersApp\services\dataService.js" />
     <Content Include="app\customersApp\views\about.html" />
     <Content Include="app\customersApp\views\customers\customers.html" />
     <Content Include="Content\animations.css" />
@@ -149,6 +152,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\CustomerSummary.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.OData;
+using System.Web.Http.OData.Query;
 using CustomerManager.Repository;
 
 namespace CustomerManager.Controllers
@@ -26,6 +27,16 @@ namespace CustomerManager.Controllers
             HttpContext.Current.Response.Headers.Add(
                 "X-InlineCount", totalRecords.ToString());
             return Request.CreateResponse(HttpStatusCode.OK, customers);
+        }
+
+        [HttpGet]
+        [EnableQuery]
+        public HttpResponseMessage CustomersSummary()
+        {
+            int totalRecords;
+            var custSummary = _repository.GetCustomersSummary(out totalRecords);
+            HttpContext.Current.Response.Headers.Add("X-InlineCount", totalRecords.ToString());
+            return Request.CreateResponse(HttpStatusCode.OK, custSummary);
         }
     }
 }
