@@ -66,8 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\customersApp\app.js" />
+    <Content Include="app\customersApp\controllers\AboutController.js" />
     <Content Include="app\customersApp\controllers\customers\customersController.js" />
     <Content Include="app\customersApp\controllers\navbarController.js" />
+    <Content Include="app\customersApp\views\about.html" />
     <Content Include="app\customersApp\views\customers\customers.html" />
     <Content Include="Content\animations.css" />
     <Content Include="Content\bootstrap-theme.css" />

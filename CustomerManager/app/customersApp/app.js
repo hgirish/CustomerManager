@@ -8,7 +8,11 @@
             .when('/customers', {
                     controller: 'CustomersController',
                     templateUrl: viewBase + 'customers/customers.html'
-                })
+            })
+            .when('/about', {
+                controller: 'AboutController',
+                templateUrl: viewBase + 'about.html'
+            })
                 .otherwise({ redirectTo: '/customers' });
         }
     ])
