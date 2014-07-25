@@ -13,6 +13,11 @@
                 controller: 'CustomerOrdersController',
                 templateUrl: viewBase+ 'customers/customerOrders.html'
             })
+            .when('/customeredit/:customerId', {
+                controller: 'CustomerEditController',
+                templateUrl: viewBase + 'customers/customerEdit.html',
+                secure: true
+            })
             .when('/about', {
                 controller: 'AboutController',
                 templateUrl: viewBase + 'about.html'

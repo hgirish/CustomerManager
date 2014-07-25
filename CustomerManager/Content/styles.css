@@ -99,3 +99,19 @@ footer {
     box-shadow: none;
     height:50px;
 }
+
+.errorMessage {
+    position:absolute;
+    padding: 5px;
+    background-color: #E03930;
+    color:white;
+    top:0px;
+    left:270px;
+}
+
+.editIcon {
+    margin-top: 2px;
+}
+.statusRow {
+    height:50px;
+}

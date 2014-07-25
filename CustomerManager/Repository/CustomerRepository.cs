@@ -1,4 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data.Entity;
+using System.Linq;
+using System.Net.NetworkInformation;
 using CustomerManager.Model;
 
 namespace CustomerManager.Repository
@@ -48,6 +53,29 @@ namespace CustomerManager.Repository
                 .Include("Orders")
                 .Include("State")
                 .SingleOrDefault(c => c.Id == id);
+        }
+
+        public OperationStatus UpdateCustomer(Customer customer)
+        {
+            var opStatus = new OperationStatus {Status = true};
+            try
+            {
+                customer.State.Id = customer.StateId;
+                _context.Customers.Attach(customer);
+                _context.Entry(customer).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
+            catch (Exception exp)
+            {
+                opStatus.Status = false;
+                opStatus.ExceptionMessage = exp.Message;
+            }
+            return opStatus;
+        }
+
+        public List<State> GetStates()
+        {
+            return _context.States.OrderBy(s => s.Name).ToList();
         }
     }
 }

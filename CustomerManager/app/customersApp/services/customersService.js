@@ -15,6 +15,26 @@
                     return status.data;
                 });
         }
+        factory.updateCustomer = function(customer) {
+            return $http.put(serviceBase + 'putCustomer/' + customer.id, customer)
+                .then(function(status) {
+                    return status.data;
+                });
+
+        }
+        factory.insertCustomer = function (customer) {
+            return $http.post(serviceBase + 'postCustomer', customer).then(function (results) {
+                customer.id = results.data.id;
+                return results.data;
+            });
+        };
+        factory.getStates = function() {
+            return $http.get(serviceBase + 'states').then(
+                function(results) {
+                    return results.data;
+                });
+        };
+
         function getPagedResource(baseResource, pageIndex, pageSize) {
             var resource = baseResource;
             resource += (arguments.length == 3) ? buildPagingUri(pageIndex, pageSize) : '';

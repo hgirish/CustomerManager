@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.OData;
+using CustomerManager.Model;
 using CustomerManager.Repository;
 
 namespace CustomerManager.Controllers
@@ -41,6 +42,25 @@ namespace CustomerManager.Controllers
         {
             var customer = _repository.GetCustomerById(id);
            return Request.CreateResponse(HttpStatusCode.OK, customer);
+        }
+
+        public HttpResponseMessage PutCustomer(int id, [FromBody] Customer customer)
+        {
+            var opStatus = _repository.UpdateCustomer(customer);
+            if (opStatus.Status)
+            {
+                return Request.CreateResponse(
+                    HttpStatusCode.Accepted, customer);
+            }
+            return Request.CreateErrorResponse(
+                HttpStatusCode.NotModified, opStatus.ExceptionMessage);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage States()
+        {
+            var states = _repository.GetStates();
+            return Request.CreateResponse(HttpStatusCode.OK, states);
         }
     }
 }
