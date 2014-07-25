@@ -18,6 +18,10 @@
                 templateUrl: viewBase + 'customers/customerEdit.html',
                 secure: true
             })
+            .when('/orders', {
+                controller: 'OrdersController',
+                templateUrl: viewBase + 'orders/orders.html'
+            })
             .when('/about', {
                 controller: 'AboutController',
                 templateUrl: viewBase + 'about.html'
