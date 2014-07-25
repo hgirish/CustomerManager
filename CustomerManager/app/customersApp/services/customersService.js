@@ -9,6 +9,12 @@
         factory.getCustomersSummary = function(pageIndex, pageSize) {
             return getPagedResource('customersSummary', pageIndex, pageSize);
         }
+        factory.getCustomer = function(id) {
+            return $http.get(serviceBase + 'customerById/' + id)
+                .then(function(status) {
+                    return status.data;
+                });
+        }
         function getPagedResource(baseResource, pageIndex, pageSize) {
             var resource = baseResource;
             resource += (arguments.length == 3) ? buildPagingUri(pageIndex, pageSize) : '';

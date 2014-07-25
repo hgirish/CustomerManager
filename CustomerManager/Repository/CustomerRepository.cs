@@ -41,5 +41,13 @@ namespace CustomerManager.Repository
                 Gender = c.Gender
             }).AsQueryable();
         }
+
+        public Customer GetCustomerById(int id)
+        {
+            return _context.Customers
+                .Include("Orders")
+                .Include("State")
+                .SingleOrDefault(c => c.Id == id);
+        }
     }
 }

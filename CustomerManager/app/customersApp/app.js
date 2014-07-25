@@ -9,6 +9,10 @@
                     controller: 'CustomersController',
                     templateUrl: viewBase + 'customers/customers.html'
             })
+            .when('/customerorders/:customerId', {
+                controller: 'CustomerOrdersController',
+                templateUrl: viewBase+ 'customers/customerOrders.html'
+            })
             .when('/about', {
                 controller: 'AboutController',
                 templateUrl: viewBase + 'about.html'

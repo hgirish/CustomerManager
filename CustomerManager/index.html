@@ -9,7 +9,7 @@
     <link href="Content/styles.css" rel="stylesheet" />
 </head>
 <body data-ng-cloak="">
-    <header class="navbar navbar-inverse navbar-fixed-top" data-ng-controller="NavbarController">
+    <header class="navbar navbar-inner navbar-fixed-top" data-ng-controller="NavbarController">
         <nav class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-ng-click="isCollapsed = !isCollapsed">
@@ -90,6 +90,8 @@
     <script src="/app/customersApp/services/customersService.js"></script>
     <script src="/app/customersApp/services/dataService.js"></script>
     <script src="/app/customersApp/filters/nameCityStateFilter.js"></script>
+    <script src="/app/customersApp/controllers/customers/customerOrdersController.js"></script>
+    <script src="/app/customersApp/controllers/orders/orderChildController.js"></script>
 
     <!--<script src="/app/wc.directives/directives/wcOverlay.js"></script>
     <script src="/app/wc.directives/directives/menuHighlighter.js"></script>
@@ -105,8 +107,6 @@
 
     <script src="/app/customersApp/services/modalService.js"></script>
     <script src="/app/customersApp/controllers/customers/customerEditController.js"></script>
-    <script src="/app/customersApp/controllers/customers/customerOrdersController.js"></script>
-    <script src="/app/customersApp/controllers/orders/orderChildController.js"></script>
     <script src="/app/customersApp/controllers/orders/ordersController.js"></script>
     <script src="/app/customersApp/controllers/loginController.js"></script>-->
 </body>

@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.OData;
-using System.Web.Http.OData.Query;
 using CustomerManager.Repository;
 
 namespace CustomerManager.Controllers
@@ -37,6 +35,12 @@ namespace CustomerManager.Controllers
             var custSummary = _repository.GetCustomersSummary(out totalRecords);
             HttpContext.Current.Response.Headers.Add("X-InlineCount", totalRecords.ToString());
             return Request.CreateResponse(HttpStatusCode.OK, custSummary);
+        }
+        [HttpGet]
+        public HttpResponseMessage CustomerById(int id)
+        {
+            var customer = _repository.GetCustomerById(id);
+           return Request.CreateResponse(HttpStatusCode.OK, customer);
         }
     }
 }
