@@ -8,7 +8,10 @@
         $scope.pageSize = 10;
         $scope.currentPage = 1;
 
-      
+        $scope.pageChanged = function () {
+           // $scope.currentPage = page;
+            getCustomers();
+        };
 
         $scope.searchTextChanged = function () {
             filterCustomersProducts($scope.searchText);

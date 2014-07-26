@@ -1,5 +1,5 @@
 ﻿(function() {
-    var CustomersController = function ($scope,$filter,$timeout, dataService) {
+    var CustomersController = function ($scope,$filter,$timeout,$location, dataService) {
        
         $scope.customers = [];
         $scope.filteredCustomers = [];
@@ -14,6 +14,11 @@
         $scope.pageSize = 10;
         $scope.currentPage = 1;
 
+        $scope.pageChanged = function() {
+            //$scope.currentPage = page;
+            console.log("CurrnetPage: " +$scope.currentPage);
+            getCustomersSummary();
+        }
         $scope.DisplayModeEnum = { Card: 0, List: 1 };
         $scope.changeDisplayMode = function(displayMode) {
             switch (displayMode) {
@@ -26,6 +31,9 @@
             }
         }
 
+        $scope.navigate = function(url) {
+            $location.path(url);
+        }
         $scope.setOrder = function(orderby) {
             if (orderby === $scope.orderby) {
                 $scope.reverse = !$scope.reverse;
@@ -61,7 +69,7 @@
         init();
     };
 
-    CustomersController.$inject = ['$scope','$filter','$timeout', 'dataService'];
+    CustomersController.$inject = ['$scope','$filter','$timeout','$location', 'dataService'];
 
     angular.module('customersApp').controller('CustomersController', CustomersController);
 }());

@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module('customersApp', ['ngRoute']);
+    var app = angular.module('customersApp', ['ngRoute','ui.bootstrap']);
 
     app.config(['$routeProvider', function($routeProvider) {
         var viewBase = '/app/customersApp/views/';
