@@ -26,7 +26,23 @@
                 controller: 'AboutController',
                 templateUrl: viewBase + 'about.html'
             })
+            .when('/login/:redirect*?', {
+                controller: 'LoginController',
+                templateUrl: viewBase + 'login.html'
+            })
                 .otherwise({ redirectTo: '/customers' });
         }
-    ])
+    ]);
+
+    app.run(['$rootScope', 'authService',
+        function ($rootScope, authService) {
+            $rootScope.$on('$routeChangeStart', function(event, next, current) {
+                if (next && next.$$route && next.$$route.secure) {
+                    if (!authService.user.isAuthenticated) {
+                        authService.redirectToLogin();
+                    }
+                }
+            });
+
+        }]);
 }());

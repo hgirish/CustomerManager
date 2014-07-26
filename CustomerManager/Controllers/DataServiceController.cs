@@ -62,5 +62,17 @@ namespace CustomerManager.Controllers
             var states = _repository.GetStates();
             return Request.CreateResponse(HttpStatusCode.OK, states);
         }
+
+        [HttpPost]
+        public HttpResponseMessage Login([FromBody] UserLogin userLogin)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, new {status = true});
+        }
+
+        [HttpPost]
+        public HttpResponseMessage Logout()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, new {status = true});
+        }
     }
 }
