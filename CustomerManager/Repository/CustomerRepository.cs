@@ -77,5 +77,17 @@ namespace CustomerManager.Repository
         {
             return _context.States.OrderBy(s => s.Name).ToList();
         }
+
+        public OperationStatus CheckUnique(int id, string property, string value)
+        {
+            switch (property.ToLower())
+            {
+                case "email":
+                    var unique = !_context.Customers.Any(c => c.Id != id && c.Email == value);
+                    return new OperationStatus {Status = unique};
+                default:
+                    return new OperationStatus();
+            }
+        }
     }
 }

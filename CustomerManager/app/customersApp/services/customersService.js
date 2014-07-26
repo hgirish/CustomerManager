@@ -8,20 +8,20 @@
         };
         factory.getCustomersSummary = function(pageIndex, pageSize) {
             return getPagedResource('customersSummary', pageIndex, pageSize);
-        }
+        };
         factory.getCustomer = function(id) {
             return $http.get(serviceBase + 'customerById/' + id)
                 .then(function(status) {
                     return status.data;
                 });
-        }
+        };
         factory.updateCustomer = function(customer) {
             return $http.put(serviceBase + 'putCustomer/' + customer.id, customer)
                 .then(function(status) {
                     return status.data;
                 });
 
-        }
+        };
         factory.insertCustomer = function (customer) {
             return $http.post(serviceBase + 'postCustomer', customer).then(function (results) {
                 customer.id = results.data.id;
@@ -33,6 +33,15 @@
                 function(results) {
                     return results.data;
                 });
+        };
+        factory.checkUniqueValue = function(id, property, value) {
+            if (!id) {
+                id = 0;
+            }
+            return $http.get(serviceBase + 'checkUnique/' + id + '?property=' + property + '&value=' + escape(value))
+            .then(function(results) {
+                return results.data.status;
+            });
         };
 
         function getPagedResource(baseResource, pageIndex, pageSize) {

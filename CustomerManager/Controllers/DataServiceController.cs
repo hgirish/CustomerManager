@@ -74,5 +74,12 @@ namespace CustomerManager.Controllers
         {
             return Request.CreateResponse(HttpStatusCode.OK, new {status = true});
         }
+
+        [HttpGet]
+        public HttpResponseMessage CheckUnique(int id, string property, string value)
+        {
+            var opStatus = _repository.CheckUnique(id, property, value);
+            return Request.CreateResponse(HttpStatusCode.OK, opStatus);
+        }
     }
 }
