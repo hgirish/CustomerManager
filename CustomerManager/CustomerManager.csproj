@@ -121,6 +121,7 @@
     <Content Include="app\customersApp\views\login.html" />
     <Content Include="app\customersApp\views\orders\orders.html" />
     <Content Include="app\customersApp\views\orders\ordersTable.html" />
+    <Content Include="app\wc.directives\directives\wcOverlay.js" />
     <Content Include="Content\animations.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
